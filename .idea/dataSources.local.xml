@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - ucomplex_dev@you.com.ru" uuid="1fad58db-cf49-499c-b6e3-93feb3f5137c">
+      <secret-storage>master_key</secret-storage>
+      <user-name>ucremote</user-name>
+      <schema-pattern>ucomplex_dev.*</schema-pattern>
+      <default-schemas>ucomplex_dev.*</default-schemas>
+    </data-source>
+  </component>
+</project>

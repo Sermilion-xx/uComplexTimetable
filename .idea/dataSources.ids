@@ -1,0 +1,1076 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - ucomplex_dev@you.com.ru" uuid="1fad58db-cf49-499c-b6e3-93feb3f5137c">
+    <database-info product="MySQL" version="5.5.43-0ubuntu0.14.04.1-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <schema name="" catalog="ucomplex_dev"/>
+    <table name="up_antiplagiat_quota" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="quota" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="expires" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="user"/>
+    </table>
+    <table name="up_attendance" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="day" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0LTQtdC90Yw="/>
+      <column name="month" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0LzQtdGB0Y/Rhg=="/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0LPQvtC0"/>
+      <column name="time" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="student" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0YHRgtGD0LTQtdC90YI="/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0LPRgNGD0L/Qv9Cw"/>
+      <column name="subgroup" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0L/QvtC00LPRgNGD0L/Qv9Cw"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0L/RgNC10L/QvtC00LDQstCw0YLQtdC70Yw="/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0LTQuNGB0YbQuNC/0LvQuNC90LA="/>
+      <column name="gcourse" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0LTQuNGB0YbQuNC/0LvQuNC90LAg0LPRgNGD0L/Qv9GL"/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0YDQsNGB0L/QuNGB0LDQvdC40LU="/>
+      <column name="mark" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0L7RhtC10L3QutCw"/>
+      <column name="number" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0L3QvtC80LXRgCDQt9Cw0L3Rj9GC0LjRjw=="/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0YLQuNC/INC30LDQvdGP0YLQuNGP"/>
+      <column name="updated" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="time" unique="true" columns="time,student,group,teacher,course,number,subgroup"/>
+      <index name="gcourse" unique="false" columns="gcourse"/>
+      <index name="student" unique="false" columns="student"/>
+      <index name="teacher" unique="false" columns="teacher,time"/>
+    </table>
+    <table name="up_blacklist" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="black" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="user,black"/>
+    </table>
+    <table name="up_books" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="shifr" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="author" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="note" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pages" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="affil" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="publish" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="copies" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="cat" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ebook" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_books_affiliates" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="up_books_bookmarks" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="book" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="page" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="user" unique="true" columns="user,book"/>
+    </table>
+    <table name="up_books_cat" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="up_books_pcard" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="book" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="from" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="to" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="student" unique="true" columns="user,book"/>
+    </table>
+    <table name="up_books_publish" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_books_shop_books" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="available" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="url" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="price" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="categories" sqlType="VARCHAR" precision="3000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="picture" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="delivery" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="ordering" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="author" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="isbn" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="publisher" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="series" sqlType="VARCHAR" precision="1000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="binding" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="page_extent" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="language" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="table_of_contents" sqlType="VARCHAR" precision="3000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="3000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="barcode" sqlType="VARCHAR" precision="256" scale="0" nullable="true" jdbcType="12"/>
+      <column name="params" sqlType="VARCHAR" precision="3000" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="categories" unique="false" columns="categories"/>
+    </table>
+    <table name="up_books_shop_categories" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="parentid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_books_shop_rootcategories" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_buildings" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_candidates" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="plan" sqlType="VARCHAR" precision="5000" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_changes" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="operation" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="target" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="details" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_contract" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="student" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="saved_year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="semester" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="study" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="sum" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="student" unique="true" columns="student,year,semester,major,study"/>
+    </table>
+    <table name="up_courses" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="cat" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="Mw=="/>
+      <column name="department" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_courses_cat" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_data" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="data" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="name"/>
+    </table>
+    <table name="up_dates" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="name"/>
+    </table>
+    <table name="up_deans" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_department_load" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="subgroup" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lecture" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="seminar" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="lab" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="lecture_room" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="seminar_room" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="lab_room" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="course_2" unique="true" columns="course,group,teacher,table"/>
+    </table>
+    <table name="up_departments" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tel" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="struct_file" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alias" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_enrollee" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="series" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="number" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="benefit" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="original" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="document" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="selector" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_enrollee_claims" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="ide" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="payment" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="study" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="profile" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="out" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="selector" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="precedence" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0L/RgNC40L7RgNC40YLQtdGCINC90LDQv9GA0LDQstC70LXQvdC40Y8="/>
+      <column name="prior" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0L/RgNC40L7RgNC40YLQtdGCICjQv9C+0LvQtSDRg9GB0YLQsNGA0LXQu9C+KQ=="/>
+      <column name="back" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="force_back" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0J7RgtC+0LfQstCw0L0g0LjQty3Qt9CwINC90LXQtNC+0YHRgtCw0YLQvtGH0L3QvtGB0YLQuCDQsdCw0LvQu9C+0LI="/>
+      <column name="enrolled" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="ordr" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" remarks="0LLRgNC10LzQtdC90L3QviAtINGN0YLQsNC/"/>
+      <column name="place" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="indx" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="ide"/>
+      <index name="id" unique="true" columns="id,major,payment,study"/>
+      <index name="major" unique="false" columns="major"/>
+      <index name="profile" unique="false" columns="profile"/>
+    </table>
+    <table name="up_enrollee_courses" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="min" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="local" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="up_enrollee_major_courses" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="priority" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="major" unique="true" columns="major,course"/>
+    </table>
+    <table name="up_enrollee_major_places" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="form" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="place_type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="places" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <index name="major" unique="true" columns="major,form,place_type,year"/>
+    </table>
+    <table name="up_enrollee_points" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="study" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="payment" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="points" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="exam_type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="test" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="reset" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="checked" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="selector" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <index name="id" unique="true" columns="id,course,major,study,payment"/>
+      <index name="major" unique="false" columns="major"/>
+    </table>
+    <table name="up_errors_log" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ip" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="data" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="url" unique="true" columns="url"/>
+    </table>
+    <table name="up_event_participants" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="student" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="details" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="event" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="utype" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="invite" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="student" unique="true" columns="student,event,utype"/>
+    </table>
+    <table name="up_events" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descr" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="start" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="till" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="holiday" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="start" unique="false" columns="start,till"/>
+    </table>
+    <table name="up_faculties" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="short_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="building" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="postcode" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tel" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="struct_file" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_files" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="VARCHAR" precision="6" scale="0" nullable="false" jdbcType="12"/>
+      <column name="size" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="folder" sqlType="VARCHAR" precision="16" scale="0" nullable="false" jdbcType="12"/>
+      <column name="data" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="owner" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="check_time" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="address" unique="true" columns="address"/>
+      <index name="folder" unique="false" columns="folder"/>
+      <index name="owner" unique="false" columns="owner"/>
+    </table>
+    <table name="up_files_access" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="file" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="file,person"/>
+    </table>
+    <table name="up_folders" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="parent_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="t_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="parent_id" unique="false" columns="parent_id,t_id"/>
+    </table>
+    <table name="up_friends" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="friend" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="user,friend"/>
+    </table>
+    <table name="up_group_courses" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="teacher" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="course" unique="true" columns="course,group,teacher,table"/>
+    </table>
+    <table name="up_groups" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="specialism" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="size" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="study" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="year" unique="false" columns="year,major,specialism"/>
+    </table>
+    <table name="up_hours" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <index name="id" unique="true" columns="id"/>
+    </table>
+    <table name="up_idname_cache" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="md5" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="orig" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="md5" unique="true" columns="md5"/>
+    </table>
+    <table name="up_loads" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="majors_plans" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_index" unique="true" columns="majors_plans,group"/>
+    </table>
+    <table name="up_majorcourses" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="course" unique="true" columns="course,major"/>
+    </table>
+    <table name="up_majors" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR" precision="9" scale="0" nullable="false" jdbcType="12"/>
+      <column name="level" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="manual" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0YLQuNC/INGB0L/RgNCw0LLQvtGH0L3QuNC60LA="/>
+      <column name="qcode" sqlType="TINYTEXT" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0LrQvtC0INC60LLQsNC70LjRhNC40LrQsNGG0LjQuA=="/>
+      <column name="qname" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="0L3QsNC30LLQsNC90LjQtSDQutCy0LDQu9C40YTQuNC60LDRhtC40Lg="/>
+      <column name="period" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" remarks="0YHRgNC+0Log0L7QsdGD0YfQtdC90LjRjw=="/>
+      <column name="eprog_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="0L3QsNC30LLQsNC90LjQtSDQvtCx0YDQsNC30L7QstCw0YLQtdC70YzQvdC+0Lkg0L/RgNC+0LPRgNCw0LzQvNGL"/>
+      <column name="langs" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12" remarks="0Y/Qt9GL0LrQuA=="/>
+      <column name="state_att_period" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" remarks="0YHRgNC+0Log0LTQtdC50YHRgtCy0LjRjyDQs9C+0YEuINCw0LrQutGA0LXQtNC40YLQsNGG0LjQuA=="/>
+      <column name="op_file" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="eprog_desc" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12" remarks="0L7Qv9C40YHQsNC90LjQtSDQvtCx0YDQsNC30L7QstCw0YIg0L/RgNC+0LPRgNCw0LzQvNGL"/>
+      <column name="eplan_file" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0KPRh9C10LHQvdGL0Lkg0L/Qu9Cw0L0="/>
+      <column name="work_prog_annot_file" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0LDQvdC90L7RgtCw0YbQuNGPINC6INGA0LDQsdC+0YfQuNC8INC/0YDQvtCz0YDQsNC80LzQsNC8"/>
+      <column name="calendar_schedule_file" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0LrQsNC70LXQvdC00LDRgNC90YvQuSDRg9GH0LXQsdC90YvQuSDQs9GA0LDRhNC40Lo="/>
+      <column name="fed_standart_file" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0YTQtdC00LXRgNCw0LvRjNC90YvQuSDQs9C+0YEuINC+0LHRgNCw0LfQvtCy0LDRgi4g0YHRgtCw0L3QtNCw0YDRgg=="/>
+      <column name="estandart_file" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" remarks="0L7QsdGA0LDQt9C+0LLQsNGC0LXQu9GM0L3Ri9C5INGB0YLQsNC90LTQsNGA0YI="/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_majors_plans" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="form" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" remarks="0LfQsNGH0LXRgi/RjdC60Lc="/>
+      <column name="study" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="semester" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lecture" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="seminar" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="lab" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="major" unique="true" columns="major,course,form,semester,study"/>
+    </table>
+    <table name="up_messages" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="from" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="to" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="message" sqlType="VARCHAR" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="from" unique="false" columns="from"/>
+      <index name="to" unique="false" columns="to"/>
+    </table>
+    <table name="up_messages_files" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="message" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="from" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="to" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="size" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="from" unique="false" columns="from"/>
+      <index name="message" unique="false" columns="message"/>
+      <index name="to" unique="false" columns="to"/>
+    </table>
+    <table name="up_my_notifs" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="event" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="seen" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="event,user"/>
+      <index name="event" unique="false" columns="event"/>
+      <index name="time" unique="false" columns="time"/>
+      <index name="user" unique="false" columns="user"/>
+    </table>
+    <table name="up_notif_receivers" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user" sqlType="VARCHAR" precision="11" scale="0" nullable="false" jdbcType="12"/>
+      <column name="event" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="utype" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="seen" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="user_2" unique="true" columns="user,event,utype"/>
+      <index name="event" unique="false" columns="event"/>
+      <index name="time" unique="false" columns="time"/>
+      <index name="user" unique="false" columns="user,utype,time"/>
+    </table>
+    <table name="up_notifications" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="params" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_orders" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="descr" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="template" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="execution_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="update_time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_orders_checkers" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ordr" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="person_cache" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="position_cache" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="section_cache" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="position" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="section" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="action" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="person,ordr"/>
+    </table>
+    <table name="up_orders_participants" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="person_cache" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role_pos" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ordr" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="person" unique="true" columns="person,role_pos,ordr"/>
+    </table>
+    <table name="up_orders_participants_fields" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="part" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="k" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cache" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="ordr" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="part,k,type"/>
+    </table>
+    <table name="up_orders_templates" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descr" sqlType="VARCHAR" precision="3000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="object" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="action" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="params" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_orders_templates_cache" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="template" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="md5" sqlType="CHAR" precision="32" scale="0" nullable="false" jdbcType="1"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descr" sqlType="VARCHAR" precision="3000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="object" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="action" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="params" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="md5" unique="true" columns="md5"/>
+    </table>
+    <table name="up_orders_templates_checkers" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="position" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="template" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="section" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="position,template"/>
+    </table>
+    <table name="up_rating" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="student" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="param" sqlType="FLOAT" precision="12" scale="0" nullable="false" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="student"/>
+      <index name="faculty" unique="false" columns="faculty,year"/>
+    </table>
+    <table name="up_rooms" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="type" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="seats" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_section_types" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_specialisms" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_structure" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="old_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="parent" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="short_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tel" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="struct_file" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="alias" unique="false" columns="alias"/>
+      <index name="parent" unique="false" columns="parent"/>
+    </table>
+    <table name="up_structure_person_positions" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="position" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="rate" sqlType="FLOAT" precision="12" scale="0" nullable="false" jdbcType="7"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="person" unique="true" columns="person,position"/>
+    </table>
+    <table name="up_structure_persons" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="login" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pass" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sex" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="statuses" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="birthday" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="birthplace" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="country" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="address_registration" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address_live" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone_work" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="series" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="number" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="document_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="document_depart" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="document_depart_code" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="academic_degree" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="academic_rank" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="academic_awards" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="upqualification" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="photo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="online" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="agent" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="searchable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="ip" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="login" unique="true" columns="login"/>
+      <index name="email" unique="false" columns="email"/>
+      <index name="name" unique="false" columns="name"/>
+    </table>
+    <table name="up_structure_persons_education" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="document_type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="series" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <column name="number" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="document_depart" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="major" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="study_level" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="person" unique="false" columns="person"/>
+    </table>
+    <table name="up_structure_persons_families" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="work_place" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="person" unique="false" columns="person"/>
+    </table>
+    <table name="up_structure_persons_langs" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="lang" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="person" unique="true" columns="person,lang"/>
+    </table>
+    <table name="up_structure_positions" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="amount" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="source" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="access" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="parent" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="parent" unique="false" columns="parent"/>
+    </table>
+    <table name="up_structure_role_positions" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="role" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="person_pos" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="role" unique="true" columns="role,person_pos"/>
+      <index name="person_pos" unique="false" columns="person_pos"/>
+      <index name="role_2" unique="false" columns="role"/>
+    </table>
+    <table name="up_structure_roles" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="alias" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="agent" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="closed" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="searchable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="online" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ip" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="data" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="person" unique="false" columns="person"/>
+      <index name="type" unique="false" columns="type"/>
+    </table>
+    <table name="up_structure_roles_students" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="study" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="payment" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="contract_year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="sex" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="series" sqlType="VARCHAR" precision="4" scale="0" nullable="false" jdbcType="12"/>
+      <column name="number" sqlType="VARCHAR" precision="10" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="group" unique="false" columns="group"/>
+      <index name="major" unique="false" columns="major,study,year"/>
+    </table>
+    <table name="up_structure_roles_teachers" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="department" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="post" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="courses" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rank" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="qualification" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="upqualification" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="experience" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dep_experience" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="degree" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="bio" sqlType="VARCHAR" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plan" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fact" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fails" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="activity_update" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="selection" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_subgroups" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="gcourse" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_subgroups_students" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="student" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="gcourse" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="subgroup" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="student" unique="true" columns="student,subgroup"/>
+    </table>
+    <table name="up_table_teachers" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="plan" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="teacher"/>
+      <index name="time" unique="false" columns="time"/>
+    </table>
+    <table name="up_tables" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="hours" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="days" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weeks" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="groups" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="till" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="folder" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <column name="calc_status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="calc_started_at" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="folder" unique="false" columns="folder"/>
+    </table>
+    <table name="up_tables2" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="hours" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="days" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weeks" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="groups" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="till" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_tables_content" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="week" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="day" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hour" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="group" unique="false" columns="group"/>
+    </table>
+    <table name="up_tables_content2" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="week" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="day" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="hour" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MQ=="/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="group" unique="false" columns="group"/>
+    </table>
+    <table name="up_tables_folders" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_tariffs" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="och" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="zaoch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="ochzaoch" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="second" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="major" unique="true" columns="major,year"/>
+    </table>
+    <table name="up_tasks" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="descr" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="start" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="end" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="execution_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="parent" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="parent" unique="false" columns="parent"/>
+      <index name="person" unique="false" columns="person"/>
+    </table>
+    <table name="up_tasks_checkers" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="task" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="action" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="task,person"/>
+      <index name="person" unique="false" columns="person"/>
+    </table>
+    <table name="up_teacher_fails" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="params" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="type" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="teacher" unique="false" columns="teacher"/>
+    </table>
+    <table name="up_teacher_files_access" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="file" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="grp" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="file,grp"/>
+    </table>
+    <table name="up_test_qs" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="exec" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="q" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ans" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="exec" unique="true" columns="exec,q"/>
+    </table>
+    <table name="up_tests_exec" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="test" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="gcourse" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="current" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="result" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <column name="start_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="end_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="finish_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="user" unique="false" columns="user,test,status"/>
+    </table>
+    <table name="up_timetable_entries" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="room" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="p" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="content" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="teacher_2" unique="true" columns="teacher,course,room,p,content"/>
+      <index name="teacher" unique="false" columns="teacher"/>
+    </table>
+    <table name="up_timetable_entries2" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="teacher" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="course" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="room" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="p" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="content" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="table" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="teacher_2" unique="true" columns="teacher,course,room,p,content"/>
+      <index name="teacher" unique="false" columns="teacher"/>
+    </table>
+    <table name="up_types" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="porder" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="up_universities" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="params" sqlType="VARCHAR" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="details" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="up_view_admins" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="up_view_buildings" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="up_view_deans" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="faculty" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+    </table>
+    <table name="up_view_departments" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tel" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="struct_file" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="up_view_faculties" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="short_name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="tel" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="struct_file" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="building" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="up_view_groups" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="size" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="year" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="study" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="major" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="up_view_tables_active" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="hours" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="days" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weeks" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="faculty" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="groups" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="till" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="folder" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+    </table>
+    <table name="up_view_teachers" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="post" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="courses" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="rank" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="qualification" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="upqualification" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="experience" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="dep_experience" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="degree" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="bio" sqlType="VARCHAR" precision="2000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="plan" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fact" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="fails" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="activity_update" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="selection" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="department" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="up_view_users" schema="" catalog="ucomplex_dev" type="VIEW">
+      <column name="person" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="login" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pass" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="256" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sex" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="code" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="alias" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="photo" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="email" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="phone" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="status" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <column name="agent" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="closed" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="searchable" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="online" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="time" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="data" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ip" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="up_voting" schema="" catalog="ucomplex_dev" type="TABLE">
+      <column name="user" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="target" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="campaign" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="q_group" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="q" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="point" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <primary-key name="PRIMARY" columns="user,target,q,campaign,q_group"/>
+    </table>
+  </data-source>
+</component>

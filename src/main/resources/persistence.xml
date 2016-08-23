@@ -1,0 +1,220 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Database.Load" table="up_department_load" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="course">
+            <column name="course" sql-type="int" not-null="true"/>
+        </property>
+        <property name="teacher">
+            <column name="teacher" sql-type="int" not-null="true"/>
+        </property>
+        <property name="lecture">
+            <column name="lecture" sql-type="int" not-null="true"/>
+        </property>
+        <property name="seminar">
+            <column name="seminar" sql-type="int" not-null="true"/>
+        </property>
+        <property name="lab">
+            <column name="lab" sql-type="int" not-null="true"/>
+        </property>
+        <property name="lectureRoom">
+            <column name="lecture_room" sql-type="int"/>
+        </property>
+        <property name="seminarRoom">
+            <column name="seminar_room" sql-type="int"/>
+        </property>
+        <property name="labRoom">
+            <column name="lab_room" sql-type="int"/>
+        </property>
+        <property name="subgroup">
+            <column name="subgroup" sql-type="int"/>
+        </property>
+        <many-to-one name="table" class="Database.Table">
+            <column name="table" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="group" class="Database.Group">
+            <column name="group" not-null="true"/>
+        </many-to-one>
+    </class>
+    <class name="Database.Room" table="up_rooms" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="type">
+            <column name="type" sql-type="varchar"/>
+        </property>
+        <property name="seats">
+            <column name="seats" sql-type="int"/>
+        </property>
+        <many-to-one name="faculty" class="Database.Faculty" lazy="false">
+            <column name="faculty"/>
+        </many-to-one>
+    </class>
+    <class name="Database.Table" table="up_tables" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar"/>
+        </property>
+        <property name="hours">
+            <column name="hours" sql-type="varchar" length="10"/>
+        </property>
+        <property name="days">
+            <column name="days" sql-type="varchar"/>
+        </property>
+        <property name="groups">
+            <column name="groups" sql-type="varchar" not-null="true"/>
+        </property>
+        <property name="status">
+            <column name="status" sql-type="int" not-null="true"/>
+        </property>
+        <property name="folder">
+            <column name="folder" sql-type="int" not-null="true"/>
+        </property>
+        <many-to-one name="faculty" class="Database.Faculty">
+            <column name="faculty" not-null="true"/>
+        </many-to-one>
+        <list name="contents" inverse="true">
+            <key>
+                <column name="table" not-null="true"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Content"/>
+        </list>
+    </class>
+    <class name="Database.Content" table="up_tables_content" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+            <!--<generator class="uuid"/>-->
+        </id>
+        <property name="week">
+            <column name="week" sql-type="int"/>
+        </property>
+        <property name="day">
+            <column name="day" sql-type="int"/>
+        </property>
+        <property name="hour">
+            <column name="hour" sql-type="int"/>
+        </property>
+        <property name="type">
+            <column name="type" sql-type="int" not-null="true"/>
+        </property>
+        <many-to-one name="group" class="Database.Group">
+            <column name="`group`"/>
+        </many-to-one>
+        <many-to-one name="table" class="Database.Table">
+            <column name="`table`" not-null="true"/>
+        </many-to-one>
+        <list name="entries" inverse="true" table="up_timetable_entries">
+            <key>
+                <column name="content" not-null="true"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Entry"/>
+        </list>
+    </class>
+    <class name="Database.Entry" table="up_timetable_entries" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+            <!--<generator class="identity"/>-->
+        </id>
+        <property name="teacher">
+            <column name="teacher" sql-type="int" not-null="true"/>
+        </property>
+        <property name="course">
+            <column name="course" sql-type="int" not-null="true"/>
+        </property>
+        <!--<property name="room">-->
+            <!--<column name="room" sql-type="int" not-null="true"/>-->
+        <!--</property>-->
+        <property name="p">
+            <column name="p" sql-type="int" not-null="true"/>
+        </property>
+        <property name="group">
+            <column name="`group`" sql-type="int" not-null="true"/>
+        </property>
+        <property name="table">
+            <column name="`table`" sql-type="int" not-null="true"/>
+        </property>
+
+        <many-to-one name="content" class="Database.Content" lazy="false" fetch="join">
+            <column name="content" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="room" class="Database.Room" lazy="false">
+            <column name="room" not-null="true"/>
+        </many-to-one>
+    </class>
+    <class name="Database.Faculty" table="up_view_faculties" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="name">
+            <column name="name" sql-type="varchar" length="256" not-null="true"/>
+        </property>
+        <property name="building">
+            <column name="building" sql-type="int" not-null="true"/>
+        </property>
+        <list name="groups" inverse="true">
+            <key>
+                <column name="faculty" not-null="true"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Group"/>
+        </list>
+        <list name="rooms" inverse="true">
+            <key>
+                <column name="faculty"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Room"/>
+        </list>
+        <list name="tables" inverse="true">
+            <key>
+                <column name="faculty" not-null="true"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Table"/>
+        </list>
+    </class>
+    <class name="Database.Group" table="up_view_groups" schema="" catalog="ucomplex_dev">
+        <id name="id">
+            <column name="id" sql-type="int" not-null="true"/>
+        </id>
+        <property name="size">
+            <column name="size" sql-type="bigint" not-null="true"/>
+        </property>
+        <property name="year">
+            <column name="year" sql-type="int"/>
+        </property>
+        <property name="study">
+            <column name="study" sql-type="int"/>
+        </property>
+        <property name="major">
+            <column name="major" sql-type="int"/>
+        </property>
+        <many-to-one name="faculty" class="Database.Faculty">
+            <column name="faculty" not-null="true"/>
+        </many-to-one>
+        <list name="loads" inverse="true">
+            <key>
+                <column name="group" not-null="true"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Load"/>
+        </list>
+        <list name="contents" inverse="true">
+            <key>
+                <column name="group"/>
+            </key>
+            <list-index column="id"/>
+            <one-to-many not-found="ignore" class="Database.Content"/>
+        </list>
+    </class>
+</hibernate-mapping>
